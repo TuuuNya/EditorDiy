@@ -4,7 +4,7 @@
 
 # 简介
 
-基于Summernote 精简和优化。
+基于Kindeditor 精简和优化。
 
 # 需要功能
 
