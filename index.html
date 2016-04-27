@@ -1,41 +1,10 @@
 <!doctype html>
-<html lang="zh-cn">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>EditorDiy</title>
-    <link rel="stylesheet" href="dist/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="dist/summernote.css">
-    <script src="dist/jquery.min.js"></script>
-    <script src="dist/bootstrap/js/bootstrap.js"></script>
-    <script src="dist/summernote.js"></script>
-    <script src="dist/lang/summernote-zh-CN.js"></script>
+    <title>EdiorDiy</title>
 </head>
 <body>
-    <div class="container" style="padding-top:100px;">
-        <h3>Hello, It's my Editor!</h3>
-        <div id="summernote">
 
-        </div>
-    </div>
-
-    <script>
-        $(document).ready(function() {
-            $('#summernote').summernote({
-                focus: true,
-                minHeight:250,
-                toolbar:[
-                        ['style',['bold','italic','clear','color','fontname']],
-                        ['insert',['picture','video','table']],
-                        ['misc',['undo','redo','fullscreen']],
-                        ['para',['ul','ol','paragraph']]
-                ],
-                lang:'zh-CN',
-                fontNames:['Microsoft Yahei'],
-            });
-            // 设置默认字体为微软雅黑
-            $('#summernote').summernote('fontName', 'Microsoft Yahei');
-//            $('#summernote').summernote('fontSize', 14);
-        });
-    </script>
 </body>
 </html>
