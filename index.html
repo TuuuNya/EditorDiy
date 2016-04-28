@@ -3,8 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>EditorDiy</title>
+
+    <style>
+        .container{
+            width:1024px;
+            margin: 200px auto 0;
+        }
+    </style>
+
+    <script src="kindeditor/kindeditor-all.js"></script>
+    <script src="kindeditor/lang/zh-CN.js"></script>
+    <script>
+        KindEditor.ready(function(K) {
+            var options = {
+                width:'600px',
+                items:[
+                        'bold'
+                ]
+            };
+            window.editor = K.create('#editor_id',options);
+        });
+    </script>
 </head>
 <body>
-
+    <div class="container">
+        <h3>Hello It's My editor!!</h3>
+        <textarea name="content" id="editor_id"></textarea>
+    </div>
 </body>
 </html>
