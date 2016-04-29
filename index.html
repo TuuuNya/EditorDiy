@@ -6,8 +6,11 @@
 
     <style>
         .container{
-            width:1024px;
+            width:600px;
             margin: 200px auto 0;
+        }
+        .ke-content img{
+            max-width: 600px;
         }
     </style>
 
@@ -18,8 +21,15 @@
             var options = {
                 width:'600px',
                 items:[
-                        'bold'
-                ]
+                        'bold','italic','forecolor','fontsize','removeformat','|',
+                        'image','media','table','|',
+                        'undo','redo','|',
+                        'justifyleft','justifycenter','justifyright','justifyfull','|',
+                        'quickformat','fullscreen'
+                ],
+                cssData: 'body {font-family: "Microsoft Yahei"; font-size: 14px;color:#595959;} body img{max-width:100%;height:auto;}',
+                pasteType:3,
+                autoHeightMode : true
             };
             window.editor = K.create('#editor_id',options);
         });
@@ -28,7 +38,9 @@
 <body>
     <div class="container">
         <h3>Hello It's My editor!!</h3>
-        <textarea name="content" id="editor_id"></textarea>
+        <textarea name="content" id="editor_id">
+
+        </textarea>
     </div>
 </body>
 </html>
