@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>EditorDiy</title>
-
+    <link rel="stylesheet" href="kindeditor/themes/simple/simple.css">
     <style>
+        body{
+            font-family: 'Microsoft Yahei';
+        }
         .container{
             width:600px;
             margin: 200px auto 0;
@@ -16,7 +19,8 @@
     <script>
         KindEditor.ready(function(K) {
             var options = {
-                width:'600px',
+                width:600,
+                minHeight:300,
                 items:[
                         'bold','italic','forecolor','fontsize','removeformat','|',
                         'image','media','table','|',
@@ -26,7 +30,8 @@
                 ],
                 cssData: 'body {font-family: "Microsoft Yahei"; font-size: 14px;color:#595959;} body img{max-width:100%;height:auto;}',
                 pasteType:3,
-                autoHeightMode : true
+                autoHeightMode : true,
+                themeType : 'simple'
             };
             window.editor = K.create('#editor_id',options);
         });
