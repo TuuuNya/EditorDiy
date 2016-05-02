@@ -5914,8 +5914,6 @@ _plugin('core', function(K) {
 			}
 			if(self.pasteType === 3){
 				html = html.replace(/&nbsp;/ig, ' ');
-				console.log('原文本：');
-				console.log(html);
 
 				//清除超链接
 				html = html.replace(/<\s*a[^<]+>/g, '');
@@ -5941,24 +5939,21 @@ _plugin('core', function(K) {
 
 				var arr_s = html.match(reg_s);
 
-				for (var i = 0; i < arr_s.length; i++) {
+				if(arr_s){
+					for (var i = 0; i < arr_s.length; i++) {
 
-					var temp = arr_s[i];
+						var temp = arr_s[i];
 
-					var temp_arr = temp.match(reg_t);
+						var temp_arr = temp.match(reg_t);
 
-					if(temp_arr && temp_arr.length > 0){
-						console.log(temp_arr);
-						html = html.replace(temp, 'style="'+ temp_arr[0] +'"');
-					}else{
-						html = html.replace(temp,'');
+						if(temp_arr && temp_arr.length > 0){
+							html = html.replace(temp, 'style="'+ temp_arr[0] +'"');
+						}else{
+							html = html.replace(temp,'');
+						}
+
 					}
-
 				}
-
-				console.log('最终文本：');
-				console.log(html);
-
 
 			}
 			if (self.pasteType === 2) {
@@ -6365,7 +6360,8 @@ KindEditor.lang({
 		'1.html' : '图片和文字',
 		'2.html' : '表格',
 		'3.html' : '项目编号'
-	}
+	},
+	'jjformat':'佳佳一键美化'
 }, 'zh-CN');
 KindEditor.options.langType = 'zh-CN';
 /*******************************************************************************
@@ -9946,4 +9942,45 @@ KindEditor.plugin('fixtoolbar', function (K) {
     } else {
         self.afterCreate(init);
     }
+});
+KindEditor.plugin('jjformat', function (K) {
+	var self = this,name = 'jjformat';
+	self.clickToolbar(name,function(){
+
+		// 取出要美化的内容
+		alert('佳佳启动超级变换形态!!!');
+		var html = self.html();
+		console.log(html);
+
+		// 清空所有style
+		var pattern = /style=['"].*\s*;['"]/img;
+		html = html.replace(pattern,'');
+
+		// 匹配img/video/object/embed视频标签
+		pattern = /<(img|video|object|embed)[^>]+>/img;
+		var arr_t = html.match(pattern);
+
+		// 如果匹配到了图片视频
+		if(arr_t){
+
+			// 循环判断每个图片视频是否已经居中
+			for(var i = 0; i < arr_t.length; i++){
+				var s_str = '<div align="center">'+"\n\t"+ arr_t[i]+ "\n" +'</div>';
+				var temp = html.indexOf(s_str);
+
+				// 如果temp大于等于0 及表示以居中无需再加
+				if(temp <= 0){
+					html = html.replace(arr_t[i],'<div align="center">'+ arr_t[i] +'</div>');
+				}
+			}
+		}
+
+		//清除超链接
+		html = html.replace(/<\s*a[^<]+>/g, '');
+		html = html.replace(/<\s*\/a>/g, '');
+
+		// p标签都加上缩进
+		html = html.replace(/<\s*p\s*>/g,'<p style="text-indent: 2em;">');
+		self.html(html);
+	});
 });
