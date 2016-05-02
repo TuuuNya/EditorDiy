@@ -1,6 +1,6 @@
 # EditorDiy
 
-富文本编辑器diy,帮朋友diy一个编辑器~
+富文本编辑器diy,帮女盆友[@jiajiakitten](https://github.com/jiajiakitten) diy一个编辑器~
 
 # 简介
 
