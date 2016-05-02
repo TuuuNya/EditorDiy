@@ -5929,8 +5929,8 @@ _plugin('core', function(K) {
 				html = html.replace(/<\s*\/h[^<]+>/g, '<\/p>');
 
 				//li\ol替换成P
-				html = html.replace(/<\s*(li|ol)>/g, '<p>');
-				html = html.replace(/<\s*\/(li|ol)>/g, '<\/p>');
+				html = html.replace(/<\s*(li|ol|ul)[^>]*>/g, '<p>');
+				html = html.replace(/<\s*\/(li|ol|ul)[^>]*>/g, '<\/p>');
 
 				//Img 居中
 				html = html.replace(/(<\s*img[^<]+>)/g, '<div align="center">$1</div>');
