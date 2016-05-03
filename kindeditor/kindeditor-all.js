@@ -5758,9 +5758,18 @@ _plugin('core', function(K) {
 				name : 'fontsize',
 				width : 150
 			});
+
+		function getsizetext(val){
+			if(val == "14px"){
+				return '正文';
+			}else{
+				return '大号';
+			}
+		}
+
 		_each(self.fontSizeTable, function(i, val) {
 			menu.addItem({
-				title : '<span style="font-size:' + val + ';" unselectable="on">' + val + '</span>',
+				title : '<span style="font-size:' + val + ';" unselectable="on">' + getsizetext(val) + '</span>',
 				height : _removeUnit(val) + 12,
 				checked : curVal === val,
 				click : function() {
