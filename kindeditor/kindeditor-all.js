@@ -9958,7 +9958,6 @@ KindEditor.plugin('jjformat', function (K) {
 
 		// 取出要美化的内容
 		var html = self.html();
-		console.log(html);
 
 		// 清空所有style
 		var pattern = /style=['"].*\s*;['"]/img;
