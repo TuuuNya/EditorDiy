@@ -9957,7 +9957,6 @@ KindEditor.plugin('jjformat', function (K) {
 	self.clickToolbar(name,function(){
 
 		// 取出要美化的内容
-		alert('佳佳启动超级变换形态!!!');
 		var html = self.html();
 		console.log(html);
 
