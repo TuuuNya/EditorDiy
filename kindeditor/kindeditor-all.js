@@ -9952,6 +9952,7 @@ KindEditor.plugin('fixtoolbar', function (K) {
         self.afterCreate(init);
     }
 });
+
 KindEditor.plugin('jjformat', function (K) {
 	var self = this,name = 'jjformat';
 	self.clickToolbar(name,function(){
@@ -9990,4 +9991,8 @@ KindEditor.plugin('jjformat', function (K) {
 		html = html.replace(/<\s*p\s*>/g,'<p style="text-indent: 2em;">');
 		self.html(html);
 	});
+});
+
+KindEditor.plugin('filedrop', function (K){
+	// todo
 });

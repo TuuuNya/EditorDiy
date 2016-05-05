@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>EditorDiy</title>
     <link rel="stylesheet" href="kindeditor/themes/simple/simple.css">
+    <script type="text/javascript" src="http://s0.qhimg.com/lib/jquery/191.js"></script>
     <style>
         body{
             font-family: 'Microsoft Yahei';
@@ -34,6 +35,14 @@
                 themeType : 'simple'
             };
             window.editor = K.create('#editor_id',options);
+            $('.ke-edit-iframe').contents().find('body').on('drop',function(e){
+                var dragfiles = e.originalEvent.dataTransfer.files;
+                for (var i = 0; i < dragfiles.length; i++) {
+                    var files = dragfiles[i];
+                    console.log(files.name);
+
+                }
+            });
         });
     </script>
 </head>
