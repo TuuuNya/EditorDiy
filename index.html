@@ -35,14 +35,6 @@
                 themeType : 'simple'
             };
             window.editor = K.create('#editor_id',options);
-            $('.ke-edit-iframe').contents().find('body').on('drop',function(e){
-                var dragfiles = e.originalEvent.dataTransfer.files;
-                for (var i = 0; i < dragfiles.length; i++) {
-                    var files = dragfiles[i];
-                    console.log(files.name);
-
-                }
-            });
         });
     </script>
 </head>

@@ -9993,6 +9993,15 @@ KindEditor.plugin('jjformat', function (K) {
 	});
 });
 
+// 文件拖拽上传 wangsong-s@360.cn && zhangwenjia@360.cn
 KindEditor.plugin('filedrop', function (K){
-	// todo
+	this.afterCreate(function (){
+		$(this.edit.doc.body).on('drop',function(e){
+			var dragfiles = e.originalEvent.dataTransfer.files;
+			for (var i = 0; i < dragfiles.length; i++) {
+				var files = dragfiles[i];
+				console.log(files.name);
+			}
+		});
+	});
 });
