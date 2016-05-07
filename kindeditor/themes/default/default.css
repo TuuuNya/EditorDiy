@@ -418,6 +418,12 @@
 	width: 16px;
 	height: 16px;
 }
+.ke-icon-insertmovie {
+	background-image: url(./skins/default.gif);
+	background-position: 0px -528px;
+	width: 16px;
+	height: 16px;
+}
 /* container */
 .ke-container {
 	display: block;

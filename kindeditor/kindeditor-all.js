@@ -6370,7 +6370,8 @@ KindEditor.lang({
 		'2.html' : '表格',
 		'3.html' : '项目编号'
 	},
-	'jjformat':'佳佳一键美化'
+	'jjformat':'佳佳一键美化',
+	'insertmovie' : '插入视频'
 }, 'zh-CN');
 KindEditor.options.langType = 'zh-CN';
 /*******************************************************************************
@@ -10001,6 +10002,38 @@ KindEditor.plugin('filedrop', function (K){
 			for (var i = 0; i < dragfiles.length; i++) {
 				var files = dragfiles[i];
 				console.log(files.name);
+			}
+		});
+	});
+});
+
+KindEditor.plugin('insertmovie', function (K) {
+	var self = this,name = 'insertmovie';
+	self.clickToolbar(name,function() {
+		var dialog = K.dialog({
+			width : 500,
+			title : '插入优酷视频',
+			body : '<div style="margin:10px;"><label for="insertmovie">视频通用代码：</label><textarea id="insertmovie" cols="35" rows="8"></textarea></div>',
+			closeBtn : {
+				name : '关闭',
+				click : function(e) {
+					dialog.remove();
+				}
+			},
+			yesBtn : {
+				name : '确定',
+				click : function(e) {
+					var html = $('#insertmovie').val();
+					html = '<br /><div align="center">' + html + '</div><br />';
+					self.insertHtml(html);
+					dialog.remove();
+				}
+			},
+			noBtn : {
+				name : '取消',
+				click : function(e) {
+					dialog.remove();
+				}
 			}
 		});
 	});
